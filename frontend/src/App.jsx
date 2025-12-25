@@ -1,6 +1,5 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router";
-import AboutPage from "./pages/AboutPage";
 import HomePage from "./pages/HomePage";
 import ProblemsPage from "./pages/ProblemsPage";
 import { Toaster } from "react-hot-toast";
@@ -8,7 +7,10 @@ import { useUser } from "@clerk/clerk-react";
 import DashboardPage from "./pages/DashboardPage";
 
 const App = () => {
-  const { isSignedIn } = useUser();
+  const { isSignedIn, isLoaded } = useUser();
+
+  if (!isLoaded) return null;
+
   return (
     <>
       <Routes>
