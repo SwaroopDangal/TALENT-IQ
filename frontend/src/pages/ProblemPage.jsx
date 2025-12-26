@@ -30,7 +30,9 @@ const ProblemPage = () => {
 
   const handleLanguageChange = (e) => {};
 
-  const handleProblemChange = (e) => {};
+  const handleProblemChange = (problemId) => {
+    navigate(`/problem/${problemId}`);
+  };
 
   const triggerConfetti = () => {};
 
@@ -59,7 +61,14 @@ const ProblemPage = () => {
             <PanelGroup direction="vertical">
               {/* TOP RIGHT PANEL CODE EDITOR */}
               <Panel defaultSize={70} minSize={30}>
-                <CodeEditor />
+                <CodeEditor
+                  selectedLanguage={selectedLanguage}
+                  code={code}
+                  isRunning={isRunning}
+                  onLanguageChange={handleLanguageChange}
+                  onCodeChange={setCode}
+                  onRunCode={handleRunCode}
+                />
               </Panel>
               <PanelResizeHandle className="h-2 bg-base-300 hover:bg-primary transition-colors cursor-row-resize" />
 
