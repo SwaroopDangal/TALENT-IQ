@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import { PROBLEMS } from "../data/problems.js";
 import Navbar from "../components/Navbar";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import OutputPanel from "../components/OutputPanel.jsx";
 import CodeEditor from "../components/CodeEditor.jsx";
+import ProblemDescription from "../components/ProblemDescription.jsx";
 
 const ProblemPage = () => {
   const { id } = useParams();
